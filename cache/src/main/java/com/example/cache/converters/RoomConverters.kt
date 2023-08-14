@@ -51,4 +51,14 @@ class RoomConverters(private val jsonParser: JsonParser) {
     fun toOrdersEntity(orderEntity: List<OrderEntity>?): String {
         return jsonParser.toJson(orderEntity, object : TypeToken<List<OrderEntity>?>(){}.type) ?: ""
     }
+
+    @TypeConverter
+    fun fromString(string: String): List<String>? {
+        return jsonParser.fromJson(string, object : TypeToken<List<String>?>() {}.type)
+    }
+
+    @TypeConverter
+    fun toString(strings: List<String>?): String? {
+        return jsonParser.toJson(strings, object : TypeToken<List<String>?>() {}.type)
+    }
 }

@@ -15,3 +15,5 @@ dependencyResolutionManagement {
 rootProject.name = "Modules"
 include ':app'
 include ':cache'
+include ':core:designsystem'
+include ':core:ui'
